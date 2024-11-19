@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <style>
+            body {
+              background: #666666;
+              color:#ffffff;
+            }
+          </style>
+    </head>
+    <body>
+      <div id="rock-paper-scissors">
+
+        <button onclick="playGame('<img draggable="false" role="img" class="emoji" alt="🪨" src="https://s.w.org/images/core/emoji/14.0.0/svg/1faa8.svg"> Rock')"><img draggable="false" role="img" class="emoji" alt="🪨" src="https://s.w.org/images/core/emoji/14.0.0/svg/1faa8.svg"> Rock</button>
+        <button onclick="playGame('<img draggable="false" role="img" class="emoji" alt="📃" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f4c3.svg"> Paper')"><img draggable="false" role="img" class="emoji" alt="📃" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f4c3.svg"> Paper</button>
+        <button onclick="playGame('<img draggable="false" role="img" class="emoji" alt="✂️" src="https://s.w.org/images/core/emoji/14.0.0/svg/2702.svg"> Scissors')"><img draggable="false" role="img" class="emoji" alt="✂️" src="https://s.w.org/images/core/emoji/14.0.0/svg/2702.svg"> Scissors</button>
+        
+        <button onclick="resetGame()">Reset Game</button>
+    
+        <p id="message"></p>
+        <h2 id="score"><img draggable="false" role="img" class="emoji" alt="👩‍💻" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f469-200d-1f4bb.svg"> Player: 0, <img draggable="false" role="img" class="emoji" alt="🤖" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f916.svg"> Computer: 0</h2>
+    
+        <script>
+            let playerScore = 0;
+            let computerScore = 0;
+    
+            function computerPlay() {
+                const choices = ['<img draggable="false" role="img" class="emoji" alt="🪨" src="https://s.w.org/images/core/emoji/14.0.0/svg/1faa8.svg"> Rock', '<img draggable="false" role="img" class="emoji" alt="📃" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f4c3.svg"> Paper', '<img draggable="false" role="img" class="emoji" alt="✂️" src="https://s.w.org/images/core/emoji/14.0.0/svg/2702.svg"> Scissors'];
+                const randomIndex = Math.floor(Math.random() * choices.length);
+                return choices[randomIndex];
+            }
+    
+            function playGame(playerSelection) {
+                const computerSelection = computerPlay();
+                let message = '';
+    
+                if (playerSelection === computerSelection) {
+                    message = `You chose ${playerSelection}. I chose ${computerSelection}.\n\nTie!`;
+                } else if (
+                    (playerSelection === '<img draggable="false" role="img" class="emoji" alt="🪨" src="https://s.w.org/images/core/emoji/14.0.0/svg/1faa8.svg"> Rock' && computerSelection === '<img draggable="false" role="img" class="emoji" alt="✂️" src="https://s.w.org/images/core/emoji/14.0.0/svg/2702.svg"> Scissors') ||
+                    (playerSelection === '<img draggable="false" role="img" class="emoji" alt="📃" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f4c3.svg"> Paper' && computerSelection === '<img draggable="false" role="img" class="emoji" alt="🪨" src="https://s.w.org/images/core/emoji/14.0.0/svg/1faa8.svg"> Rock') ||
+                    (playerSelection === '<img draggable="false" role="img" class="emoji" alt="✂️" src="https://s.w.org/images/core/emoji/14.0.0/svg/2702.svg"> Scissors' && computerSelection === '<img draggable="false" role="img" class="emoji" alt="📃" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f4c3.svg"> Paper')
+                ) {
+                    playerScore += 1;
+                    message = `You chose ${playerSelection}. I chose ${computerSelection}.\nYou win!\n${playerSelection} beats ${computerSelection}.`;
+                } else {
+                    computerScore += 1;
+                    message = `You chose ${playerSelection}. I chose ${computerSelection}.\nYou lose!\n${computerSelection} beats ${playerSelection}.`;
+                }
+    
+                document.getElementById('message').textContent = message;
+                document.getElementById('score').textContent = `<img draggable="false" role="img" class="emoji" alt="👩‍💻" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f469-200d-1f4bb.svg"> Player: ${playerScore}, <img draggable="false" role="img" class="emoji" alt="🤖" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f916.svg"> Computer: ${computerScore}`;
+            }
+    
+            function resetGame() {
+                playerScore = 0;
+                computerScore = 0;
+                document.getElementById('message').textContent = '';
+                document.getElementById('score').textContent = `<img draggable="false" role="img" class="emoji" alt="👩‍💻" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f469-200d-1f4bb.svg"> Player: ${playerScore}, <img draggable="false" role="img" class="emoji" alt="🤖" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f916.svg"> Computer: ${computerScore}`;
+            }
+        </script>
+    </div>
+        
+    </body>
+</html>
+</script>
