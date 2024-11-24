@@ -303,6 +303,7 @@ div.menu_bar {
 @li_width: 50px;
 @menu_wnd_height: 22px;
 .result_set {
+  padding: 5px 0 5px 0;
   background: @bgmenu_rs !important;
 }
 div.menu_wnd {
@@ -1058,22 +1059,21 @@ div.where {
 }
 
 @rstt_form_height: calc(@ulaquery_height - 50px);
-@rstt_form_width: calc(@html_width -100px);
+@rstt_form_width: calc(@html_width - 50px);
 @rstt_row_height: 25px;
 @rstt_col_width: 30px;
-
+// UA resultset
 div.resultset {
   box-sizing: border-box;
-  height: @rstt_form_height;
   max-width: @rstt_form_width !important;
   min-width: @rstt_form_width !important;
   overflow-y: scroll;
-  overflow-x: scroll;
-  // padding-left: 5px;
+  overflow-x: auto;
   border: 2px solid @border_rs;
+  background: darken(@color0, 30%);
   table {
     box-sizing: border-box;
-    width: 100%;
+    width: 99%;
     border-spacing: 0;
     border-collapse: collapse;
     display: block;
@@ -1086,7 +1086,7 @@ div.resultset {
       tr {
         th {
           //UA background: darken(@head_back, 10%);
-          background: ligthen(@bgmenu_rs, 20%);
+          background: darken(@color0, 20%);
           color: @head_color;
           max-height: @rstt_row_height;
           min-height: @rstt_row_height;
