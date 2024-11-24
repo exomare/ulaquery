@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# import os
 import argparse
 from bottle import Bottle
 from bottle import request, static_file

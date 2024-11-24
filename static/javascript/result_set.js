@@ -23,7 +23,7 @@ var ResultSet = {
   build: async function (rows) {
     const sp = "         ";
     const menu = `
-<div class="menu_wnd" >
+<div class="menu_wnd result_set" >
 <ul>
 <li>
 <a class="tipb arrow" href="javascript:ResultSet.scroll_top()">&#9650;

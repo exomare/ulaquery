@@ -12,17 +12,16 @@
     <link rel="stylesheet/less" type="text/css" href="static/less/ulaquery.less" />
     <script type="text/javascript" src="static/less/less.js"></script>
     <!--  -->
-    <script type="text/javascript" src="static/javascript/uadrag.js"></script>
-    <script type="text/javascript" src="static/javascript/uajt.js"></script>
-    <script type="text/javascript" src="static/javascript/uawindow.js"></script>
+    <script src="static/javascript/uadrag.js"></script>
+    <script src="static/javascript/uajt.js"></script>
+    <script src="static/javascript/uawindow.js"></script>
     <!--  -->
-    <script type="text/javascript" src="static/javascript/data_manager.js"></script>
-    <script type="text/javascript" src="static/javascript/dict_form.js"></script>
-    <script type="text/javascript" src="static/javascript/filter.js"></script>
-    <script type="text/javascript" src="static/javascript/result_set.js"></script>
-    <script type="text/javascript" src="static/javascript/text_manager.js"></script>
-    <script type="text/javascript" src="static/javascript/ulaquery.js" ></script>
-    <!-- <script src="javascript/ulaquery.js" async ></script> -->
+    <script  src="static/javascript/data_manager.js"></script>
+    <script  src="static/javascript/dict_form.js"></script>
+    <script  src="static/javascript/filter.js"></script>
+    <script  src="static/javascript/result_set.js"></script>
+    <script  src="static/javascript/text_manager.js"></script>
+    <script  src="static/javascript/ulaquery.js" ></script>
   </head>
   <body>
     <div class="wait">
@@ -32,5 +31,11 @@
   </body>
 </html>
 <script>
-  UlaQuery.open();
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM completamente caricato e analizzato");
+    window.addEventListener("load", function () {
+      console.log("Tutti i file esterni (CSS, JavaScript, immagini) sono stati caricati");
+      UlaQuery.open();
+    });
+  });
 </script>

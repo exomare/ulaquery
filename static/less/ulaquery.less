@@ -231,7 +231,7 @@ div.menu_bar {
         top: @menu_sub_top;
         left: 0;
         width: 100%;
-        z-index: calc(@menu_bar_z+1);
+        z-index: calc(@menu_bar_z + 1);
         li {
           border-top: 1px solid @menu_border_bck;
           width: 150px;
@@ -301,7 +301,10 @@ div.menu_bar {
 }
 
 @li_width: 50px;
-@menu_wnd_height: 22;
+@menu_wnd_height: 22px;
+.result_set {
+  background: @bgmenu_rs !important;
+}
 div.menu_wnd {
   box-sizing: border-box;
   width: 100%;
@@ -612,7 +615,8 @@ div.pos_msd {
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    //BUG align-items:left ;
+    align-items: start;
     justify-content: flex-start;
     list-style: none;
 
@@ -623,7 +627,8 @@ div.pos_msd {
         ul {
           display: flex;
           flex-direction: row;
-          align-items: left;
+          //BUG align-items: left;
+          align-items: start;
           justify-content: flex-start;
           list-style: none;
 
@@ -712,7 +717,7 @@ div.funct {
 
   display: flex;
   flex-direction: row;
-  align-items: top;
+  // BUG align-items: top;
   justify-content: flex-start;
 
   div {
@@ -878,7 +883,7 @@ div.sigl {
   background: @wnd_back;
   display: flex;
   flex-direction: row;
-  align-items: top;
+  //BUG align-items: top;
   justify-content: flex-start;
   div {
     box-sizing: border-box;
@@ -1053,20 +1058,19 @@ div.where {
 }
 
 @rstt_form_height: calc(@ulaquery_height - 50px);
-@rstt_form_width: @html_width;
+@rstt_form_width: calc(@html_width -100px);
 @rstt_row_height: 25px;
 @rstt_col_width: 30px;
 
 div.resultset {
   box-sizing: border-box;
   height: @rstt_form_height;
-  // width: @rstt_form_width !important;
-  min-width: @rstt_form_width !important;
   max-width: @rstt_form_width !important;
+  min-width: @rstt_form_width !important;
   overflow-y: scroll;
   overflow-x: scroll;
   // padding-left: 5px;
-
+  border: 2px solid @border_rs;
   table {
     box-sizing: border-box;
     width: 100%;
@@ -1081,7 +1085,8 @@ div.resultset {
       position: sticky;
       tr {
         th {
-          background: darken(@head_back, -10%);
+          //UA background: darken(@head_back, 10%);
+          background: ligthen(@bgmenu_rs, 20%);
           color: @head_color;
           max-height: @rstt_row_height;
           min-height: @rstt_row_height;
@@ -1140,10 +1145,9 @@ div.select_text {
   border: 1px solid @wnd_border_color;
   padding: 5px 5px 5px 0;
   background: @wnd_back;
-
   display: flex;
   flex-direction: row;
-  align-items: top;
+  //BUG align-items: top;
   justify-content: flex-start;
 
   div {
